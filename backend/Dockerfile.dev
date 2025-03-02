@@ -1,0 +1,18 @@
+# ---------- Dockerfile para desarrollo ----------
+    FROM node:20
+
+    WORKDIR /app
+    
+    # Copiar y construir dependencias
+    COPY package*.json ./
+    RUN npm install
+    
+    # Copiar el resto del código fuente
+    COPY . .
+    
+    # Exponer el puerto
+    EXPOSE 3000
+    
+    CMD ["npm", "run", "dev"]
+
+    
